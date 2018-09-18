@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SingleRandomSeries from "../SingleRandomSeries";
+import "./index.css";
 class RandomSeries extends Component {
   render() {
     const { list } = this.props;
@@ -10,7 +11,7 @@ class RandomSeries extends Component {
         <ul>
           <div className="random-series-container">
             {list.map(item => (
-              <SingleRandomSeries item={item} />
+              <SingleRandomSeries item={item} key={item.id} />
             ))}
           </div>
         </ul>

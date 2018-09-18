@@ -7,7 +7,8 @@ class SingleRandomSeries extends Component {
       <Link to={`/series/${item.id}`} target="_blank" className="single-item">
         <p>{item.name}</p>
         <div className="image-holder">
-          <img src={item.image.medium} alt="" />
+          {item.image !== null && <img src={item.image.medium} alt="" />}
+          {item.image === null && <p>no image</p>}
         </div>
       </Link>
     );
