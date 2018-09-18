@@ -9,7 +9,7 @@ class RandomSeries extends Component {
         {console.log(list)}
         <p>Przykladowa lista seriali</p>
         <ul>
-          <div className="random-series-container">
+          <div className="container random-series-container">
             {list.map(item => (
               <SingleRandomSeries item={item} key={item.id} />
             ))}
