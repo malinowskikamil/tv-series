@@ -1,0 +1,11 @@
+.random-series-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-flow: wrap;
+}
+.random-series-container .single-item {
+  flex-basis: 200px;
+  max-width: 200px;
+  margin: 0 10px;
+}
