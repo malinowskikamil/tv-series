@@ -7,5 +7,17 @@
 .random-series-container .single-item {
   flex-basis: 200px;
   max-width: 200px;
-  margin: 0 10px;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.2s;
+}
+.random-series-container .single-item:active {
+  transform: scale(0.95);
+}
+.random-series-container .single-item:hover .hidden-content {
+  transform: translateY(0);
+}
+.random-series-container .single-item:hover .hidden-content p {
+  opacity: 1;
 }
