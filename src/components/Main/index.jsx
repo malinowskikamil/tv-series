@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Series from "../../containers/Series";
 import SingleSeries from "../../containers/SingleSeries";
 import SinglePerson from "../../containers/SinglePerson";
