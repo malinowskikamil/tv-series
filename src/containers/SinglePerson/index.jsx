@@ -8,7 +8,7 @@ class SinglePerson extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    fetch(`http://api.tvmaze.com/people/${id}`).then(response =>
+    fetch(`https://api.tvmaze.com/people/${id}`).then(response =>
       response.json().then(json => this.setState({ person: json }))
     );
   }

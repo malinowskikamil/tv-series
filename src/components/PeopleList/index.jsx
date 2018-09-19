@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PeopleListItem = ({ people }) => (
   <li>
-    <Link to={`/people/${people.person.id}`}>{people.person.name}</Link>
+    <Link to={`people/${people.person.id}`}>{people.person.name}</Link>
   </li>
 );
 
