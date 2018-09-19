@@ -19,7 +19,7 @@ class Series extends Component {
       seriesName: e.target.value,
       isFetching: true
     });
-    fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`).then(
+    fetch(`https://api.tvmaze.com/search/shows?q=${e.target.value}`).then(
       response =>
         response
           .json()
@@ -32,7 +32,7 @@ class Series extends Component {
       personName: e.target.value,
       isFetching: true
     });
-    fetch(`http://api.tvmaze.com/search/people?q=${e.target.value}`).then(
+    fetch(`https://api.tvmaze.com/search/people?q=${e.target.value}`).then(
       response =>
         response
           .json()
@@ -49,7 +49,7 @@ class Series extends Component {
     }
     this.setState({ randomIds });
     for (let i = 0; i < 10; i++) {
-      fetch(`http://api.tvmaze.com/shows/${randomIds[i]}?embed=episodes`).then(
+      fetch(`https://api.tvmaze.com/shows/${randomIds[i]}?embed=episodes`).then(
         response =>
           response.json().then(json => {
             randomList.push(json);

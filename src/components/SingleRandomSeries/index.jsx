@@ -8,7 +8,7 @@ class SingleRandomSeries extends Component {
     const { item } = this.props;
     return (
       <Link
-        to={`/series/${item.id}`}
+        to={`series/${item.id}`}
         target="_blank"
         className="single-item"
         data-rating=""
