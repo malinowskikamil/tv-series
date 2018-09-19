@@ -5,16 +5,14 @@ class RandomSeries extends Component {
   render() {
     const { list } = this.props;
     return (
-      <div>
+      <div className="random-series-container">
         {console.log(list)}
-        <p>Przykladowa lista seriali</p>
-        <ul>
-          <div className="container random-series-container">
-            {list.map(item => (
-              <SingleRandomSeries item={item} key={item.id} />
-            ))}
-          </div>
-        </ul>
+        <h2 className="random-series-list--title">Random Series List</h2>
+        <div className="random-series-list">
+          {list.map(item => (
+            <SingleRandomSeries item={item} key={item.id} />
+          ))}
+        </div>
       </div>
     );
   }
