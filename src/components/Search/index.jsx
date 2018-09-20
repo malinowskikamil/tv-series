@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SeriesSearch from "./SeriesSearch";
 import ActorsSearch from "./ActorsSearch";
-
+import "./index.css";
 class Search extends Component {
   state = {
     series: [],
@@ -36,21 +36,34 @@ class Search extends Component {
           .then(json => this.setState({ actors: json, isFetching: false }))
     );
   };
+
+  onInputFocus = e => {
+    e.target.parentNode.classList.add("focused");
+  };
+
+  onInputBlur = e => {
+    e.target.parentNode.classList.remove("focused");
+  };
+
   render() {
     const { series, seriesName, actors, personName, isFetching } = this.state;
     return (
-      <div>
+      <div className="search-container">
         <SeriesSearch
           isFetching={isFetching}
           series={series}
           seriesName={seriesName}
           onChange={e => this.onSeriesInputChange}
+          focus={e => this.onInputFocus}
+          blur={e => this.onInputBlur}
         />
         <ActorsSearch
           isFetching={isFetching}
           actors={actors}
           personName={personName}
           onChange={e => this.onActorInputChange}
+          focus={e => this.onInputFocus}
+          blur={e => this.onInputBlur}
         />
       </div>
     );

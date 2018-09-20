@@ -1,32 +1,26 @@
 import React, { Component } from "react";
-import ActorsList from "../components/ActorsList";
-import Loader from "../../Loader";
+import ActorsList from "./ActorsList";
 
-class ActoresSearch extends Component {
+class ActorsSearch extends Component {
   render() {
-    const { personName, actors, isFetching } = this.props;
+    const { personName, actors } = this.props;
     return (
-      <div className="actores-search">
-        <div>
+      <div className="actors-search">
+        <div className="inp-group">
+          <label htmlFor="actorsSearch">Search for actor</label>
           <input
+            id="actorsSearch"
             type="text"
             value={personName}
             onChange={this.props.onChange()}
+            onFocus={this.props.focus()}
+            onBlur={this.props.blur()}
           />
         </div>
-        {actors.length === 0 &&
-          personName.trim() === "" && (
-            <p>Please enter actors name into the input</p>
-          )}
-        {actors.length === 0 &&
-          personName.trim() !== "" && (
-            <p>No actors have been found with this name</p>
-          )}
-        {isFetching && actors.length !== 0 && <Loader />}
-        {!isFetching && <ActorsList list={this.props.actors} />}
+        {<ActorsList list={actors} />}
       </div>
     );
   }
 }
 
-export default ActoresSearch;
+export default ActorsSearch;

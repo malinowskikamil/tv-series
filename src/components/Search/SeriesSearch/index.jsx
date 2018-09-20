@@ -1,30 +1,23 @@
 import React, { Component } from "react";
-import SeriesList from "../components/SeriesList";
-import Loader from "../../Loader";
+import SeriesList from "./SeriesList";
 
 class SeriesSearch extends Component {
   render() {
-    const { series, seriesName, isFetching } = this.props;
-
+    const { series, seriesName } = this.props;
     return (
       <div className="series-search">
-        <div>
+        <div className="inp-group">
+          <label htmlFor="seriesSearch">Search for Series</label>
           <input
             type="text"
+            id="seriesSearch"
             value={seriesName}
             onChange={this.props.onChange()}
+            onFocus={this.props.focus()}
+            onBlur={this.props.blur()}
           />
         </div>
-        {series.length === 0 &&
-          seriesName.trim() === "" && (
-            <p>Please enter series name into the input</p>
-          )}
-        {series.length === 0 &&
-          seriesName.trim() !== "" && (
-            <p>No TV serieas have been found with this name</p>
-          )}
-        {isFetching && series.length !== 0 && <Loader />}
-        {!isFetching && <SeriesList list={this.props.series} />}
+        <SeriesList list={series} />
       </div>
     );
   }

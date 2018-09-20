@@ -1,0 +1,42 @@
+.search-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 50px 0;
+}
+.actors-search,
+.series-search {
+  flex-basis: 300px;
+  max-width: 300px;
+}
+
+.inp-group {
+  position: relative;
+}
+
+.inp-group label {
+  display: inline-block;
+  font-size: 16px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-50%);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.inp-group input {
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 30px;
+  outline: none;
+  padding: 0 10px;
+}
+.inp-group.focused label {
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  color: #fff;
+}

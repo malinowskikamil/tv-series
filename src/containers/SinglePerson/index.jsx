@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Loader from "../../components/Loader";
 import { Link } from "react-router-dom";
 class SinglePerson extends Component {
   state = {
@@ -17,7 +16,7 @@ class SinglePerson extends Component {
     console.log(person);
     return (
       <div>
-        {person === null && <Loader />}
+        {person === null && <p>No Information</p>}
         {person !== null && (
           <div>
             <p>{person.name}</p>
