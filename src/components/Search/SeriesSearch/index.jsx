@@ -15,9 +15,15 @@ class SeriesSearch extends Component {
             onChange={this.props.onChange()}
             onFocus={this.props.focus()}
             onBlur={this.props.blur()}
+            onKeyUp={this.props.keyup()}
           />
         </div>
-        <SeriesList list={series} />
+        {series.length !== 0 &&
+          seriesName !== "" && <SeriesList list={series} />}
+        {series.length === 0 &&
+          seriesName !== "" && (
+            <p className="error">No series found by that name</p>
+          )}
       </div>
     );
   }

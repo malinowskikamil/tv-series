@@ -15,9 +15,15 @@ class ActorsSearch extends Component {
             onChange={this.props.onChange()}
             onFocus={this.props.focus()}
             onBlur={this.props.blur()}
+            onKeyUp={this.props.keyup()}
           />
         </div>
-        {<ActorsList list={actors} />}
+        {actors.length !== 0 &&
+          personName !== "" && <ActorsList list={actors} />}
+        {actors.length === 0 &&
+          personName !== "" && (
+            <p className="error">No actors found by that name</p>
+          )}
       </div>
     );
   }

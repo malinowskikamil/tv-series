@@ -8,6 +8,7 @@
 .series-search {
   flex-basis: 300px;
   max-width: 300px;
+  position: relative;
 }
 
 .inp-group {
@@ -33,10 +34,76 @@
   line-height: 30px;
   outline: none;
   padding: 0 10px;
+  border: none;
 }
 .inp-group.focused label {
   top: -10px;
   left: 50%;
   transform: translate(-50%, -100%);
   color: #fff;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  background: #fff;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.dropdown-list.open {
+  opacity: 1;
+  height: initial;
+  transition: opacity 0.5s;
+}
+
+.error {
+  padding-top: 10px;
+  color: #ea3839;
+}
+
+.dropdown-list ul {
+  list-style-type: none;
+  padding: 0 10px;
+  margin: 0;
+}
+
+.dropdown-list ul li {
+  text-align: left;
+  line-height: 30px;
+}
+.dropdown-list ul li:first-child {
+  padding-top: 10px;
+  position: relative;
+}
+.dropdown-list ul li:first-child::before {
+  content: "";
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dropdown-list ul li:last-child {
+  padding-bottom: 10px;
+}
+.dropdown-list ul li a {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: 0.2s;
+  display: inline-block;
+  width: 100%;
+}
+.dropdown-list ul li a:hover {
+  opacity: 0.7;
+}
+.dropdown-list ul li a:active {
+  transform: scale(0.95);
 }
