@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Loader from "../../components/Loader";
 import { Link } from "react-router-dom";
 class SingleSeries extends Component {
   state = {
@@ -14,10 +13,9 @@ class SingleSeries extends Component {
   }
   render() {
     const { show } = this.state;
-    console.log(show);
     return (
       <div>
-        {show === null && <Loader />}
+        {show === null && <p>No Information</p>}
         {show !== null && (
           <div>
             <p>{show.name}</p>

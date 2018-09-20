@@ -1,5 +1,4 @@
 import React from "react";
-import "./index.css";
 import { Link } from "react-router-dom";
 
 const SeriesListItem = ({ series }) => (
@@ -10,8 +9,8 @@ const SeriesListItem = ({ series }) => (
 
 const SeriesList = props => {
   return (
-    <div>
-      <ul className="series-list">
+    <div className="dropdown-list">
+      <ul>
         {props.list.map(series => (
           <SeriesListItem series={series} key={series.show.id} />
         ))}

@@ -9,7 +9,7 @@ const PeopleListItem = ({ people }) => (
 
 const PeopleList = props => {
   return (
-    <div>
+    <div className="dropdown-list">
       <ul className="series-list">
         {props.list.map(people => (
           <PeopleListItem people={people} />
