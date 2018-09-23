@@ -9,7 +9,7 @@ const SeriesListItem = ({ series }) => (
 
 const SeriesList = props => {
   return (
-    <div className="dropdown-list">
+    <div className={`dropdown-list ${props.isOpen ? "open" : ""}`}>
       <ul>
         {props.list.map(series => (
           <SeriesListItem series={series} key={series.show.id} />

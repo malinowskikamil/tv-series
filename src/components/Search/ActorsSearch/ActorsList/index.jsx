@@ -1,22 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PeopleListItem = ({ people }) => (
+const AcrtorListItem = ({ people }) => (
   <li>
     <Link to={`people/${people.person.id}`}>{people.person.name}</Link>
   </li>
 );
 
-const PeopleList = props => {
+const ActorsList = props => {
   return (
-    <div className="dropdown-list">
+    <div className={`dropdown-list ${props.isOpen ? "open" : ""}`}>
       <ul className="series-list">
         {props.list.map(people => (
-          <PeopleListItem people={people} />
+          <AcrtorListItem people={people} key={people.person.id} />
         ))}
       </ul>
     </div>
   );
 };
 
-export default PeopleList;
+export default ActorsList;

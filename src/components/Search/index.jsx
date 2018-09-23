@@ -41,19 +41,6 @@ class Search extends Component {
     e.target.parentNode.classList.add("focused");
   };
 
-  onInputBlur = e => {
-    const event = e.target;
-    setTimeout(() => {
-      event.parentNode.nextSibling.classList.remove("open");
-    }, 200);
-    if (e.target.value === "") {
-      e.target.parentNode.classList.remove("focused");
-    }
-  };
-  onKeyUp = e => {
-    e.target.parentNode.nextSibling.classList.add("open");
-  };
-
   render() {
     const { series, seriesName, actors, personName, isFetching } = this.state;
     return (
@@ -64,7 +51,6 @@ class Search extends Component {
           seriesName={seriesName}
           onChange={e => this.onSeriesInputChange}
           focus={e => this.onInputFocus}
-          blur={e => this.onInputBlur}
           keyup={e => this.onKeyUp}
         />
         <ActorsSearch
@@ -73,7 +59,6 @@ class Search extends Component {
           personName={personName}
           onChange={e => this.onActorInputChange}
           focus={e => this.onInputFocus}
-          blur={e => this.onInputBlur}
           keyup={e => this.onKeyUp}
         />
       </div>
