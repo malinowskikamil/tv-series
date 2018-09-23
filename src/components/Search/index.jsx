@@ -42,7 +42,10 @@ class Search extends Component {
   };
 
   onInputBlur = e => {
-    e.target.parentNode.nextSibling.classList.remove("open");
+    const event = e.target;
+    setTimeout(() => {
+      event.parentNode.nextSibling.classList.remove("open");
+    }, 200);
     if (e.target.value === "") {
       e.target.parentNode.classList.remove("focused");
     }
