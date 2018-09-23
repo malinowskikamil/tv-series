@@ -3,26 +3,29 @@ import Search from "../../components/Search";
 import RandomSeries from "../../components/RandomSeries";
 class Series extends Component {
   state = {
-    randomList: [],
-    randomIds: []
+    randomList: []
   };
 
-  componentDidMount() {
-    let randomIds = this.state.randomIds;
+  getSeries = () => {
+    let randomNumber = Math.floor(Math.random() * 10000 + 1);
     let randomList = this.state.randomList;
-    for (let i = 0; i < 10; i++) {
-      let randomNumber = Math.floor(Math.random() * 10000 + 1);
-      randomIds.push(randomNumber);
-    }
-    this.setState({ randomIds });
-    for (let i = 0; i < 10; i++) {
-      fetch(`https://api.tvmaze.com/shows/${randomIds[i]}?embed=episodes`).then(
-        response =>
+    fetch(`https://api.tvmaze.com/shows/${randomNumber}?embed=episodes`).then(
+      response => {
+        if (response.ok) {
           response.json().then(json => {
             randomList.push(json);
             this.setState({ randomList });
-          })
-      );
+          });
+        } else {
+          this.getSeries();
+        }
+      }
+    );
+  };
+
+  componentDidMount() {
+    for (let i = 0; i < 10; i++) {
+      this.getSeries();
     }
   }
   render() {
