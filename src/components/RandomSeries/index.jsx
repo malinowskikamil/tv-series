@@ -6,7 +6,6 @@ class RandomSeries extends Component {
     const { list } = this.props;
     return (
       <div className="random-series-container">
-        {console.log(list)}
         <h2 className="random-series-list--title">Random Series List</h2>
         <div className="random-series-list">
           {list.map(item => (

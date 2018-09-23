@@ -16,12 +16,18 @@ class HiddenContent extends Component {
           {item.rating.average !== null && item.rating.average}
           {item.rating.average === null && "unknown"}
         </p>
+
         <p className="series-seasons">
           Seasons:{" "}
-          {item._embedded.episodes[item._embedded.episodes.length - 1].season}
+          {item._embedded.episodes.length !== 0 &&
+            item._embedded.episodes[item._embedded.episodes.length - 1].season}
+          {item._embedded.episodes.length === 0 && <span>no info</span>}
         </p>
         <p className="series-episodes">
-          Episodes: {item._embedded.episodes.length}
+          Episodes:{" "}
+          {item._embedded.episodes.length !== 0 &&
+            item._embedded.episodes.length}
+          {item._embedded.episodes.length === 0 && <span>no info</span>}
         </p>
       </div>
     );

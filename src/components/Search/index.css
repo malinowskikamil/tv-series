@@ -64,6 +64,8 @@
 .error {
   padding-top: 10px;
   color: #ea3839;
+  position: absolute;
+  top: 100%;
 }
 
 .dropdown-list ul {

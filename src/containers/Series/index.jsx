@@ -11,7 +11,7 @@ class Series extends Component {
     let randomIds = this.state.randomIds;
     let randomList = this.state.randomList;
     for (let i = 0; i < 10; i++) {
-      let randomNumber = Math.floor(Math.random() * 1000 + 1);
+      let randomNumber = Math.floor(Math.random() * 10000 + 1);
       randomIds.push(randomNumber);
     }
     this.setState({ randomIds });

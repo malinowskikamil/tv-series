@@ -5,7 +5,7 @@ class ImageContent extends Component {
     const { item } = this.props;
     return (
       <div className="image-holder">
-        <img src={item.image.medium} alt="" />
+        <img src={item.image !== "null" && item.image.medium} alt="" />
       </div>
     );
   }

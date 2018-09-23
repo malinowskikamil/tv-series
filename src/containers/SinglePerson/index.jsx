@@ -13,7 +13,6 @@ class SinglePerson extends Component {
   }
   render() {
     const { person } = this.state;
-    console.log(person);
     return (
       <div>
         {person === null && <p>No Information</p>}
