@@ -22,7 +22,12 @@ class SingleSeries extends Component {
             <p>Premiered - {show.premiered}</p>
             <p>Rating - {show.rating.average}</p>
             <p>Episodes - {show._embedded.episodes.length}</p>
-            {show.summary}
+            {
+              <div
+                className="show-summary"
+                dangerouslySetInnerHTML={{ __html: show.summary }}
+              />
+            }
             {show.image !== null && (
               <p>
                 <img src={show.image.medium} alt="" />
