@@ -16,8 +16,20 @@ class DescriptionContainer extends Component {
           ))}
         </p>
         <p>
+          <b>Type : </b>
+          {show.type}
+        </p>
+        <p>
+          <b>Language : </b>
+          {show.language}
+        </p>
+        <p>
           <b>Rating : </b>
           {show.rating.average}
+        </p>
+        <p>
+          <b>Status : </b>
+          {show.status}
         </p>
         <p>
           <b>Seasons: </b>
