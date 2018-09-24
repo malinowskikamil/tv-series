@@ -1,0 +1,40 @@
+.show-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.show-container .show-info {
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.show-container .show-info .show-image,
+.show-container .show-info .show-description {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.show-container .show-info .show-image img {
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  filter: drop-shadow(5px 5px 10px rgba(255, 255, 255, 0.1));
+}
+
+.show-container .show-info .show-description h1 {
+  font-size: 40px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+.show-container .show-info .show-description p {
+  font-style: 25px;
+}
+.show-container .show-info .show-description b {
+  font-weight: 500;
+}

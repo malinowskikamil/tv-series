@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import ShowView from "../../components/ShowView";
 class SingleSeries extends Component {
   state = {
     show: null
@@ -13,26 +13,8 @@ class SingleSeries extends Component {
   }
   render() {
     const { show } = this.state;
-    return (
-      <div>
-        {show === null && <p>No Information</p>}
-        {show !== null && (
-          <div>
-            <p>{show.name}</p>
-            <p>Premiered - {show.premiered}</p>
-            <p>Rating - {show.rating.average}</p>
-            <p>Episodes - {show._embedded.episodes.length}</p>
-            {show.summary}
-            {show.image !== null && (
-              <p>
-                <img src={show.image.medium} alt="" />
-              </p>
-            )}
-            <Link to="/">Back</Link>
-          </div>
-        )}
-      </div>
-    );
+    console.log(show);
+    return <div>{show !== null && <ShowView show={show} />}</div>;
   }
 }
 
