@@ -1,7 +1,7 @@
 .show-container {
   max-width: 900px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding: 50px 0;
 }
 
 .show-container .show-info {
@@ -37,4 +37,7 @@
 }
 .show-container .show-info .show-description b {
   font-weight: 500;
+}
+.show-container .show-series {
+  padding-bottom: 20px;
 }

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import ImageContainer from "./components/imageContainer";
 import SummaryContainer from "./components/summaryContainer";
 import DescriptionContainer from "./components/descriptionContainer";
+import SeriesContainer from "./components/seriesContainer";
 import "./index.css";
+import arrowBack from "../../assets/arrow-back.svg";
 
 class ShowViev extends Component {
   render() {
@@ -15,8 +17,10 @@ class ShowViev extends Component {
           <DescriptionContainer show={show} />
         </div>
         <SummaryContainer show={show} />
-
-        <Link to="/">Back</Link>
+        <SeriesContainer seasons={show} />
+        <Link to="/" className="go-back">
+          <img src={arrowBack} alt="" />
+        </Link>
       </div>
     );
   }

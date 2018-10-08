@@ -12,7 +12,7 @@ class DescriptionContainer extends Component {
         <p>
           <b>Genre : </b>
           {show.genres.map(genre => (
-            <span key={genre}>{genre}</span>
+            <span key={genre}>{genre}, </span>
           ))}
         </p>
         <p>
