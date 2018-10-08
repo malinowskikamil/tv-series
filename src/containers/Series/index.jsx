@@ -7,14 +7,12 @@ class Series extends Component {
   state = {
     randomSeries: [],
     randomActors: [],
-    countActors: 0,
-    countSeries: 0,
     isLoadedActors: false,
     isLoadedSeries: false
   };
 
   getSeries = () => {
-    let randomNumber = Math.floor(Math.random() * 10000 + 1);
+    let randomNumber = Math.floor(Math.random() * 100000 + 1);
 
     let randomSeries = this.state.randomSeries;
     fetch(`https://api.tvmaze.com/shows/${randomNumber}?embed=episodes`).then(
@@ -24,9 +22,9 @@ class Series extends Component {
           response.json().then(json => {
             if (json.image !== null) {
               randomSeries.push(json);
-              countSeries++;
               this.setState({ randomSeries, countSeries });
-              countSeries >= 9 && this.setState({ isLoadedSeries: true });
+              randomSeries.length === 10 &&
+                this.setState({ isLoadedSeries: true });
             } else {
               this.getSeries();
             }
@@ -46,9 +44,9 @@ class Series extends Component {
         response.json().then(json => {
           if (json.image !== null) {
             randomActors.push(json);
-            countActors++;
             this.setState({ randomActors, countActors });
-            countActors >= 10 && this.setState({ isLoadedActors: true });
+            randomActors.length === 10 &&
+              this.setState({ isLoadedActors: true });
           } else {
             this.getActors();
           }
