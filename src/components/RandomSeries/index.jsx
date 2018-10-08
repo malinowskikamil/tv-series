@@ -5,9 +5,9 @@ class RandomSeries extends Component {
   render() {
     const { list } = this.props;
     return (
-      <div className="random-series-container">
-        <h2 className="random-series-list--title">Random Series List</h2>
-        <div className="random-series-list">
+      <div className="home-container">
+        <h2 className="home-container--title">Random Series List</h2>
+        <div className="random-list">
           {list.map(item => (
             <SingleRandomSeries item={item} key={item.id} />
           ))}
