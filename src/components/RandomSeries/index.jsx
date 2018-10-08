@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import SingleRandomSeries from "../SingleRandomSeries";
 import "./index.css";
+import Spinner from "../Spinner";
 class RandomSeries extends Component {
   render() {
-    const { list } = this.props;
+    const { list, isLoaded } = this.props;
     return (
       <div className="home-container">
         <h2 className="home-container--title">Random Series List</h2>
-        <div className="random-list">
+        <Spinner isLoaded={isLoaded} />
+        <div className={`random-list ${!isLoaded ? "hide" : ""}`}>
           {list.map(item => (
             <SingleRandomSeries item={item} key={item.id} />
           ))}
