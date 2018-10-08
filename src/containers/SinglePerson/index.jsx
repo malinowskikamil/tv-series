@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import ActorView from "../../components/ActorView";
 class SinglePerson extends Component {
   state = {
     person: null
@@ -14,18 +14,9 @@ class SinglePerson extends Component {
   render() {
     const { person } = this.state;
     return (
-      <div>
+      <div className="main-container">
+        {person !== null && <ActorView person={person} />}
         {person === null && <p>No Information</p>}
-        {person !== null && (
-          <div>
-            <p>{person.name}</p>
-            {person.country !== null && <p>{person.country.name}</p>}
-            {person.country === null && <p>no information</p>}
-            {person.image !== null && <img src={person.image.medium} alt="" />}
-            {person.image === null && <p>no image</p>}
-            <Link to="/">Back</Link>
-          </div>
-        )}
       </div>
     );
   }

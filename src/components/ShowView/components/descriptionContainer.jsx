@@ -5,7 +5,7 @@ class DescriptionContainer extends Component {
 
     return (
       <div className="show-description">
-        <h1>"{show.name}"</h1>
+        <h1 className="title">"{show.name}"</h1>
         <p>
           <b>Premiered : </b> {show.premiered}
         </p>
