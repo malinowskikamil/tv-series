@@ -26,12 +26,6 @@
   filter: drop-shadow(5px 5px 10px rgba(255, 255, 255, 0.1));
 }
 
-.show-container .show-info .show-description h1 {
-  font-size: 40px;
-  font-weight: 500;
-  font-style: italic;
-  letter-spacing: 1px;
-}
 .show-container .show-info .show-description p {
   font-style: 25px;
 }

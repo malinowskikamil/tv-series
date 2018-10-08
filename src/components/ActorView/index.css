@@ -1,0 +1,22 @@
+.actor-container {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  min-height: 100vh;
+}
+.actor-container .image-holder,
+.actor-container .description-holder {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+.actor-container .image-holder img {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  filter: drop-shadow(5px 5px 10px rgba(255, 255, 255, 0.1));
+}
+.actor-container .description-holder {
+  text-align: center;
+}
