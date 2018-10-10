@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NewestsList from "./newestsList";
 import "./index.css";
+import Filters from "./filters";
 
 class NewestContainer extends Component {
   render() {
@@ -9,7 +10,7 @@ class NewestContainer extends Component {
       <div className="newest-container">
         <h1>List of newests episodes</h1>
         <div className="content-wrapper">
-          <div className="filters-panel">Filters</div>
+          <Filters />
           <NewestsList newestList={newestList} />
         </div>
       </div>

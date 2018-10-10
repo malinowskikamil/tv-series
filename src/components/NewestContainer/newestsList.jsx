@@ -11,7 +11,12 @@ class NewestsList extends Component {
             className="single-item"
             to={`/series/${item._embedded.show.id}`}
           >
-            <img src={item._embedded.show.image.medium} alt="" />
+            <div className="image-holder">
+              <img src={item._embedded.show.image.medium} alt="" />
+              <span className="hovered-item">
+                Rating: {item._embedded.show.rating.average}
+              </span>
+            </div>
             <span className="item-name">
               {item._embedded.show.name} - {item.name}
             </span>

@@ -44,11 +44,11 @@ class NewestSeries extends Component {
             }
           }
         }
-        console.log(newestList.length);
         this.setState({ newestList });
       });
     });
   }
+
   render() {
     return <NewestContainer newestList={this.state.newestList} />;
   }
