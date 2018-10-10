@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import SeriesSearch from "./SeriesSearch";
 import ActorsSearch from "./ActorsSearch";
 import "./index.css";
@@ -53,6 +54,7 @@ class Search extends Component {
           focus={e => this.onInputFocus}
           keyup={e => this.onKeyUp}
         />
+        <Link to="/newests">Go to Newest series List</Link>
         <ActorsSearch
           isFetching={isFetching}
           actors={actors}

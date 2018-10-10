@@ -44,13 +44,56 @@ class NewestSeries extends Component {
             }
           }
         }
+        console.log(newestList);
+
         this.setState({ newestList });
       });
     });
   }
-
+  handleChangeRating = value => {
+    const newestList = this.state.newestList;
+    switch (value) {
+      case "fromLower":
+        newestList.sort(
+          (item, itemNext) =>
+            item._embedded.show.rating.average >
+            itemNext._embedded.show.rating.average
+              ? 1
+              : itemNext._embedded.show.rating.average >
+                item._embedded.show.rating.average
+                ? -1
+                : 0
+        );
+        this.setState({ newestList });
+        break;
+      case "fromHigher":
+        newestList.sort(
+          (item, itemNext) =>
+            item._embedded.show.rating.average >
+            itemNext._embedded.show.rating.average
+              ? -1
+              : itemNext._embedded.show.rating.average >
+                item._embedded.show.rating.average
+                ? 1
+                : 0
+        );
+        this.setState({ newestList });
+        break;
+      default:
+        break;
+    }
+  };
+  handleChangeCategory = value => {
+    console.log(value);
+  };
   render() {
-    return <NewestContainer newestList={this.state.newestList} />;
+    return (
+      <NewestContainer
+        newestList={this.state.newestList}
+        handleChangeRating={this.handleChangeRating}
+        handleChangeCategory={this.handleChangeCategory}
+      />
+    );
   }
 }
 

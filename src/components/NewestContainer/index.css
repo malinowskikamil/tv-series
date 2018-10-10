@@ -62,4 +62,15 @@
 .filters-panel {
   flex-basis: 300px;
   max-width: 300px;
+  padding-right: 40px;
+  text-align: left;
+}
+.filters-panel .single-box {
+  padding-top: 20px;
+}
+.filters-panel .single-box span {
+  font-style: 16px;
+  line-height: 20px;
+  padding-bottom: 10px;
+  display: inline-block;
 }
