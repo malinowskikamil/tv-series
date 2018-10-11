@@ -12,7 +12,7 @@ class Series extends Component {
   };
 
   getSeries = () => {
-    let randomNumber = Math.floor(Math.random() * 100000 + 1);
+    let randomNumber = Math.floor(Math.random() * 10000 + 1);
 
     let randomSeries = this.state.randomSeries;
     fetch(`https://api.tvmaze.com/shows/${randomNumber}?embed=episodes`).then(
@@ -68,7 +68,7 @@ class Series extends Component {
       randomActors
     } = this.state;
     return (
-      <div>
+      <div className="main-container">
         <Search />
         <RandomSeries list={randomSeries} isLoaded={isLoadedSeries} />
         <RandomActors list={randomActors} isLoaded={isLoadedActors} />

@@ -8,11 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="main-container">
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
-            <Main />
-          </BrowserRouter>
-        </div>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <Main />
+        </BrowserRouter>
       </div>
     );
   }
