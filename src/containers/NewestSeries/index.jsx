@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import NewestContainer from "../../components/NewestContainer";
 class NewestSeries extends Component {
   state = {
-    newestList: []
+    newestList: [],
+    newestListCopy: []
   };
 
   componentDidMount() {
@@ -44,9 +45,11 @@ class NewestSeries extends Component {
             }
           }
         }
-        console.log(newestList);
 
-        this.setState({ newestList });
+        this.setState({
+          newestList,
+          newestListCopy: newestList
+        });
       });
     });
   }
@@ -64,7 +67,9 @@ class NewestSeries extends Component {
                 ? -1
                 : 0
         );
-        this.setState({ newestList });
+        this.setState({
+          newestList
+        });
         break;
       case "fromHigher":
         newestList.sort(
@@ -77,14 +82,34 @@ class NewestSeries extends Component {
                 ? 1
                 : 0
         );
-        this.setState({ newestList });
+        this.setState({
+          newestList
+        });
         break;
       default:
         break;
     }
   };
   handleChangeCategory = value => {
-    console.log(value);
+    const option = value;
+    const newestList = [...this.state.newestListCopy];
+    const filteredList = [];
+    if (option !== "showAll") {
+      newestList.filter(item => {
+        for (let i = 0; i < item._embedded.show.genres.length; i++) {
+          item._embedded.show.genres[i] === option
+            ? filteredList.push(item)
+            : false;
+        }
+      });
+      this.setState({
+        newestList: filteredList
+      });
+    } else {
+      this.setState({
+        newestList
+      });
+    }
   };
   render() {
     return (

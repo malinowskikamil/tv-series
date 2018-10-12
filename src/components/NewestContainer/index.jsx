@@ -46,7 +46,7 @@ class NewestContainer extends Component {
     };
     return (
       <div className="newest-container">
-        <h1>List of newests episodes</h1>
+        <h1>List of newests {newestList.length} episodes</h1>
         <div className="content-wrapper">
           <aside className="filters-panel">
             <h3>Filters</h3>
