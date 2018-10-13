@@ -92,7 +92,13 @@ class NewestContainer extends Component {
                 }}
               />
             </div>
-          </aside>
+            <div className="single-box">
+              <p>Search by serie name:</p>
+              <div className="inp-group">
+              <input type="text" onChange={(e)=> this.props.handleSearch(e)}/>
+              </div>
+            </div>
+                      </aside>
           <NewestsList newestList={newestList} />
         </div>
         <Link to="/" className="go-back">

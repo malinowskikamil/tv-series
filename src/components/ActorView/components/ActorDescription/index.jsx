@@ -5,7 +5,6 @@ class ActorDescription extends Component {
     return (
       <div className="description-holder">
         <h1 className="title">{person.name}</h1>
-        {console.log(person)}
         {person.country !== null && <p>Country: {person.country.name}</p>}
         {person.country === null && <p>Country: no information</p>}
         {person.birthday !== null && <p>Birthday: {person.birthday}</p>}
