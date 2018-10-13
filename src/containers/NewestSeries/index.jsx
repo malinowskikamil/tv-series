@@ -111,12 +111,31 @@ class NewestSeries extends Component {
       });
     }
   };
+  handleSearch = e => {
+    const value = e.target.value;
+    const newestList = [...this.state.newestListCopy];
+    let searchingArray = [];
+    for (let i = 0; i < newestList.length; i++) {
+      let wordArray = newestList[i]._embedded.show.name.split(" ");
+      for (let j = 0; j < wordArray.length; j++) {
+        if (wordArray[j] === value || wordArray[j].toLowerCase() === value) {
+          searchingArray.push(newestList[i]);
+        }else if(value === '' || value === ' '){
+          searchingArray = [];
+          this.setState({ newestList });
+          return false;
+        }
+      }
+    }
+    this.setState({ newestList: searchingArray });
+  };
   render() {
     return (
       <NewestContainer
         newestList={this.state.newestList}
         handleChangeRating={this.handleChangeRating}
         handleChangeCategory={this.handleChangeCategory}
+        handleSearch={this.handleSearch}
       />
     );
   }
