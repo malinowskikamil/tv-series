@@ -109,3 +109,32 @@
 .dropdown-list ul li a:active {
   transform: scale(0.95);
 }
+.search-link{
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  display: flex;
+  align-content: center;
+  line-height: 15px;
+  position: relative;
+}
+.search-link img{
+  position: absolute;
+  top: 0;
+  right: -5px;
+  transform: translateX(100%);
+  width: 20px;
+  height: 15px;
+  display: inline-block;
+  transition: 0.2s;
+}
+.search-link:hover{
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.7;
+
+}
+.search-link:hover img{
+  right: -15px;
+
+}

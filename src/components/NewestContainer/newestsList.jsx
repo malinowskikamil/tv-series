@@ -10,6 +10,7 @@ class NewestsList extends Component {
             key={item.id}
             className="single-item"
             to={`/series/${item._embedded.show.id}`}
+            target="_blank"
           >
             <div className="image-holder">
               <img src={item._embedded.show.image.medium} alt="" />
