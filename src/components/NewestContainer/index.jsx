@@ -101,7 +101,7 @@ class NewestContainer extends Component {
                       </aside>
           <NewestsList newestList={newestList} />
         </div>
-        <Link to="/" className="go-back">
+        <Link to="/newests" className="go-back">
           <img src={arrowBack} alt="" />
         </Link>
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SeriesSearch from "./SeriesSearch";
 import ActorsSearch from "./ActorsSearch";
+import arrownext from "../../assets/arrow-next.svg"
 import "./index.css";
 class Search extends Component {
   state = {
@@ -54,7 +55,7 @@ class Search extends Component {
           focus={e => this.onInputFocus}
           keyup={e => this.onKeyUp}
         />
-        <Link to="/newests">Go to Newest series List</Link>
+        <Link className="search-link" to="/newests">Go to Newest series List <img src={arrownext} alt=""/></Link>
         <ActorsSearch
           isFetching={isFetching}
           actors={actors}
