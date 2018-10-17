@@ -1,5 +1,6 @@
 .actor-container {
   display: flex;
+  flex-flow: wrap;
   align-items: center;
   padding: 50px 0;
   min-height: 100vh;
@@ -19,4 +20,71 @@
 }
 .actor-container .description-holder {
   text-align: center;
+}
+.actor-container .cast-box {
+  margin-top: 50px;
+  flex-basis: 100%;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  color: #222;
+}
+
+.actor-container .cast-box .box-list {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-flow: wrap;
+  padding-top: 20px;
+}
+.actor-container .cast-box.hide {
+  display: none;
+}
+
+.character-item {
+  flex-basis: calc(20% - 20px);
+  max-width: calc(20% - 20px);
+  margin: 0 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.character-item .character-image {
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.character-item .character-image img {
+  width: 100%;
+}
+.character-item .character-name {
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 5px;
+  color: #222;
+}
+.character-item .hovered-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: 0.2s;
+  padding: 0 20px;
+}
+.character-item .hovered-content p{
+  color: #fff;
+}
+.character-item:hover {
+  text-decoration: none;
+}
+.character-item:hover .hovered-content{
+  opacity: 1;
 }

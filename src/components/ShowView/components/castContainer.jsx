@@ -8,7 +8,7 @@ class CastContainer extends Component {
         <h2 className="title">Cast</h2>
         <div className="box-list">
           {showCast.map(item => (
-            <Link to={`/people/${item.person.id}`} className="box-item" key={item.person.id}>
+          item.person.image !== null &&  <Link to={`/people/${item.person.id}`} className="box-item" key={item.person.id}>
               <div className="image">
                 <img
                   src={
