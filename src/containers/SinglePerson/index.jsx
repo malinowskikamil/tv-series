@@ -5,7 +5,13 @@ class SinglePerson extends Component {
     person: null,
     personCast: []
   };
+  
   componentWillMount() {
+    let https = (array) => {
+      let arraySplited = array.split(':');
+      arraySplited[0] = 'https';
+      return  array = arraySplited.join(':');
+    }
     const { id } = this.props.match.params;
     let personCast = this.state.personCast;
     fetch(`https://api.tvmaze.com/people/${id}`).then(response =>
@@ -14,9 +20,9 @@ class SinglePerson extends Component {
     fetch(`https://api.tvmaze.com/people/${id}/castcredits`).then(response => {
       response.json().then(data => {
         for (let i = 0; i < data.length; i++) {
-          let linkCharacter = data[i]._links.character.href;
-          let linkShow = data[i]._links.show.href;
-          fetch(linkCharacter).then(response => {
+          let linkCharacter = https(data[i]._links.character.href);
+          let linkShow = https(data[i]._links.show.href);
+            fetch(linkCharacter).then(response => {
             response.json().then(item => {
               const showInfo = {};
               fetch(linkShow).then(responseShow => {
@@ -27,6 +33,7 @@ class SinglePerson extends Component {
                 })
               })
               personCast.push(item);
+            // model kolor oferty rabat przycisk
             });
           });
         }
