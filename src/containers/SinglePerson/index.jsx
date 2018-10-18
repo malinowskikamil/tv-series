@@ -33,7 +33,6 @@ class SinglePerson extends Component {
                 })
               })
               personCast.push(item);
-            // model kolor oferty rabat przycisk
             });
           });
         }
