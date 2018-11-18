@@ -7,28 +7,15 @@ class HiddenContent extends Component {
       <div className="hidden-content">
         <p className="series-name">{item.name}</p>
         <p className="series-genre">
-          {item.genres.map(genre => (
-            <span key={genre}>{genre}</span>
-          ))}
+          {item.genres &&
+            item.genres.map(genre => <span key={genre}>{genre}</span>)}
         </p>
         <p className="series-rate">
           {"Rating: "}
-          {item.rating.average !== null && item.rating.average}
-          {item.rating.average === null && "unknown"}
+          {item.rating !== undefined && item.rating.average}
+          {item.rating === null && "unknown"}
         </p>
-
-        <p className="series-seasons">
-          Seasons:{" "}
-          {item._embedded.episodes.length !== 0 &&
-            item._embedded.episodes[item._embedded.episodes.length - 1].season}
-          {item._embedded.episodes.length === 0 && <span>no info</span>}
-        </p>
-        <p className="series-episodes">
-          Episodes:{" "}
-          {item._embedded.episodes.length !== 0 &&
-            item._embedded.episodes.length}
-          {item._embedded.episodes.length === 0 && <span>no info</span>}
-        </p>
+        <p className="series-episodes">Episodes: {item.weight}</p>
       </div>
     );
   }

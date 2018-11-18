@@ -1,77 +1,39 @@
 import React, { Component } from "react";
 import Search from "../../components/Search";
 import RandomSeries from "../../components/RandomSeries";
-import RandomActors from "../../components/RandomActors";
 
 class Series extends Component {
   state = {
-    randomSeries: [],
-    randomActors: [],
-    isLoadedActors: false,
+    series: [],
     isLoadedSeries: false
   };
 
   getSeries = () => {
-    let randomNumber = Math.floor(Math.random() * 10000 + 1);
-
-    let randomSeries = this.state.randomSeries;
-    fetch(`https://api.tvmaze.com/shows/${randomNumber}?embed=episodes`).then(
-      response => {
-        if (response.ok) {
-          response.json().then(json => {
-            if (json.image !== null) {
-              randomSeries.push(json);
-              this.setState({ randomSeries });
-              randomSeries.length === 10 &&
-                this.setState({ isLoadedSeries: true });
-            } else {
-              this.getSeries();
-            }
+    fetch('http://api.tvmaze.com/shows')
+      .then(response => {
+        response.json().then(responeItems => {
+          const series = [...this.state.series];
+          responeItems.map(item => {
+            item.image !== null && item.type !== 'Talk Show' && item.type !== 'Reality' && item.type !== 'Animation' && item.rating !== null && item.rating.average > 6 && item.language !== 'Japanese' && series.push(item);
+            console.log(item)
           });
-        } else {
-          this.getSeries();
-        }
-      }
-    );
-  };
-  getActors = () => {
-    let randomNumber = Math.floor(Math.random() * 10000 + 1);
-    let randomActors = this.state.randomActors;
-    fetch(`https://api.tvmaze.com/people/${randomNumber}`).then(response => {
-      if (response.ok) {
-        response.json().then(json => {
-          if (json.image !== null) {
-            randomActors.push(json);
-            this.setState({ randomActors });
-            randomActors.length === 10 &&
-              this.setState({ isLoadedActors: true });
-          } else {
-            this.getActors();
-          }
+          return this.setState({series, isLoadedSeries: true })
         });
-      } else {
-        this.getActors();
-      }
-    });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
   componentDidMount() {
-    for (let i = 0; i < 10; i++) {
-      this.getSeries();
-      this.getActors();
-    }
+    this.getSeries();
   }
   render() {
-    const {
-      isLoadedActors,
-      isLoadedSeries,
-      randomSeries,
-      randomActors
-    } = this.state;
+    const { isLoadedSeries, series } = this.state;
     return (
       <div className="main-container">
+        {console.log(series)}
         <Search />
-        <RandomSeries list={randomSeries} isLoaded={isLoadedSeries} />
-        <RandomActors list={randomActors} isLoaded={isLoadedActors} />
+        <RandomSeries list={series} isLoaded={isLoadedSeries} />
       </div>
     );
   }

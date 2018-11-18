@@ -7,7 +7,7 @@ class RandomSeries extends Component {
     const { list, isLoaded } = this.props;
     return (
       <div className="home-container">
-        <h2 className="home-container--title">Random Series List</h2>
+        <h2 className="home-container--title">List of {list.length} serises</h2>
         <Spinner isLoaded={isLoaded} />
         <div className={`random-list ${!isLoaded ? "hide" : ""}`}>
           {list.map(item => (
