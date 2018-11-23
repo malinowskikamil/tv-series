@@ -1,0 +1,15 @@
+.results-holder{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 50px;
+    width: 100%;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.results-holder.open{
+    display: flex;
+    opacity: 1;
+}
+

@@ -3,6 +3,7 @@
   justify-content: space-around;
   align-items: baseline;
   padding: 50px 0;
+  flex-flow: wrap;
 }
 .actors-search,
 .series-search {
