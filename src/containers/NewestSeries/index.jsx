@@ -96,11 +96,12 @@ class NewestSeries extends Component {
     const filteredList = [];
     if (option !== "showAll") {
       newestList.filter(item => {
-        for (let i = 0; i < item._embedded.show.genres.length; i++) {
+       for (let i = 0; i < item._embedded.show.genres.length; i++) {
           item._embedded.show.genres[i] === option
-            ? filteredList.push(item)
-            : false;
+            ?  filteredList.push(item)
+            :  false;
         }
+        return filteredList;
       });
       this.setState({
         newestList: filteredList

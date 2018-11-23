@@ -14,8 +14,7 @@ class Series extends Component {
         response.json().then(responeItems => {
           const series = [...this.state.series];
           responeItems.map(item => {
-            item.image !== null && item.type !== 'Talk Show' && item.type !== 'Reality' && item.type !== 'Animation' && item.rating !== null && item.rating.average > 6 && item.language !== 'Japanese' && series.push(item);
-            console.log(item)
+           return item.image !== null && item.type !== 'Talk Show' && item.type !== 'Reality' && item.type !== 'Animation' && item.rating !== null && item.rating.average > 6 && item.language !== 'Japanese' && series.push(item);
           });
           return this.setState({series, isLoadedSeries: true })
         });
@@ -31,7 +30,6 @@ class Series extends Component {
     const { isLoadedSeries, series } = this.state;
     return (
       <div className="main-container">
-        {console.log(series)}
         <Search />
         <RandomSeries list={series} isLoaded={isLoadedSeries} />
       </div>

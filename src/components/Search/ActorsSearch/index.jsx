@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ActorsList from "./ActorsList";
 
 class ActorsSearch extends Component {
   state = {
@@ -14,7 +13,7 @@ class ActorsSearch extends Component {
     this.setState({ isOpen: true });
   };
   render() {
-    const { personName, actors } = this.props;
+    const { personName } = this.props;
     return (
       <div className="actors-search">
         <div className="inp-group">
@@ -29,15 +28,6 @@ class ActorsSearch extends Component {
             onBlur={this.onInputBlur}
           />
         </div>
-        {actors.length !== 0 &&
-          personName !== "" && (
-            <ActorsList list={actors} isOpen={this.state.isOpen} />
-          )}
-
-        {actors.length === 0 &&
-          personName !== "" && (
-            <p className="error">No actors found by that name</p>
-          )}
       </div>
     );
   }

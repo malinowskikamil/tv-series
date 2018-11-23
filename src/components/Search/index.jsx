@@ -4,11 +4,11 @@ import SeriesSearch from "./SeriesSearch";
 import ActorsSearch from "./ActorsSearch";
 import arrownext from "../../assets/arrow-next.svg"
 import "./index.css";
+import SearchResult from "./SearchResult";
 class Search extends Component {
   state = {
-    series: [],
+    results: [],
     seriesName: "",
-    actors: [],
     personName: "",
     isFetching: false
   };
@@ -22,7 +22,7 @@ class Search extends Component {
       response =>
         response
           .json()
-          .then(json => this.setState({ series: json, isFetching: false }))
+          .then(json => this.setState({ results: json, isFetching: false }))
     );
   };
 
@@ -35,7 +35,7 @@ class Search extends Component {
       response =>
         response
           .json()
-          .then(json => this.setState({ actors: json, isFetching: false }))
+          .then(json => this.setState({ results: json, isFetching: false }))
     );
   };
 
@@ -44,12 +44,11 @@ class Search extends Component {
   };
 
   render() {
-    const { series, seriesName, actors, personName, isFetching } = this.state;
+    const { results, seriesName, personName, isFetching } = this.state;
     return (
       <div className="search-container">
         <SeriesSearch
           isFetching={isFetching}
-          series={series}
           seriesName={seriesName}
           onChange={e => this.onSeriesInputChange}
           focus={e => this.onInputFocus}
@@ -58,12 +57,12 @@ class Search extends Component {
         <Link className="search-link" to="/newests">Go to Newest series List <img src={arrownext} alt=""/></Link>
         <ActorsSearch
           isFetching={isFetching}
-          actors={actors}
           personName={personName}
           onChange={e => this.onActorInputChange}
           focus={e => this.onInputFocus}
           keyup={e => this.onKeyUp}
         />
+        <SearchResult  data={results}/>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SeriesList from "./SeriesList";
 
 class SeriesSearch extends Component {
   state = {
@@ -14,7 +13,7 @@ class SeriesSearch extends Component {
     this.setState({ isOpen: true });
   };
   render() {
-    const { series, seriesName } = this.props;
+    const { seriesName } = this.props;
 
     return (
       <div className="series-search">
@@ -30,14 +29,6 @@ class SeriesSearch extends Component {
             onBlur={this.onInputBlur}
           />
         </div>
-        {series.length !== 0 &&
-          seriesName !== "" && (
-            <SeriesList list={series} isOpen={this.state.isOpen} />
-          )}
-        {series.length === 0 &&
-          seriesName !== "" && (
-            <p className="error">No series found by that name</p>
-          )}
       </div>
     );
   }

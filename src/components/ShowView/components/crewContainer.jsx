@@ -8,13 +8,15 @@ class CrewContainer extends Component {
       <div className="show-box">
         <h2 className="title">Crew</h2>
         <div className="box-list">
-          {showCrew.map(item => (
+          {showCrew.map((item, index) => (
             <Link
-              key={item.person.id}
+              key={item.person.id + index}
               to={`/people/${item.person.id}`}
               className="box-item crew-box"
             >
               <div className="image">
+{             console.log(index)
+}
                 <img
                   src={
                     item.person.image !== null
