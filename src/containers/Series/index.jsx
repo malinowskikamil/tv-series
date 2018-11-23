@@ -9,7 +9,7 @@ class Series extends Component {
   };
 
   getSeries = () => {
-    fetch('http://api.tvmaze.com/shows')
+    fetch('https://api.tvmaze.com/shows')
       .then(response => {
         response.json().then(responeItems => {
           const series = [...this.state.series];
